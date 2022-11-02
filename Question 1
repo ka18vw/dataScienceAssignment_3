@@ -1,0 +1,30 @@
+#part(i)
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+import numpy as np
+import matplotlib.pyplot as plt
+
+crimeData = pd.read_csv('crime.csv')
+x = crimeData[['ViolentCrimesPerPop']]
+y_unemployed = crimeData['PctUnemployed']
+
+model_unemployment = LinearRegression(fit_intercept = False)
+model_unemployment.fit(x,y_unemployed)
+
+print('Intercept:', model_unemployment.intercept_)
+print('Coefficient:', model_unemployment.coef_)
+
+
+#part(ii)
+y_education = crimeData['PctBSorMore']
+model_education = LinearRegression(fit_intercept = False)
+model_education.fit(x,y_education)
+
+print('Intercept:', model_education.intercept_)
+print('Coefficient:', model_education.coef_)
+
+
+#Comapring the two coefficients we can see that both, Unumployment rate and People with bachelors degree or more have a positive relationship with 
+#Violent Crimes, Unemployment being slightly more influential with a steeper coefficient. This means, the higher the uemployment rate, 
+#the higher the rate of violent crimes, and higher the ratio of people with Bacherlors Degree or more, the higher the increase in violent crimes.
+
