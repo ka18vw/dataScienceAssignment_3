@@ -1,0 +1,13 @@
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+kidneyData = pd.read_csv('kidney_disease.csv')
+
+X = kidneyData[['age', 'bp', 'sod','pot','hemo','pcv', 'wc']]
+y = kidneyData['ckd']
+
+#carrying out LogisticRegression and setting up the model
+#liblinear to classify large linear datasets
+logisticRegression = LogisticRegression(solver='liblinear')
