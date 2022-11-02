@@ -9,12 +9,12 @@ def get_frequency(input_string):
         else:
             dict_of_frequencies[word] = 1
     most_frequent=0 # set most_frequent to 0 
-    for key,val in dict_of_frequencies.items(): # iterate over the dictionary for key value pair 
+    for key,val in dict_of_frequencies.items(): 
         if(val>most_frequent): # when val is greater than most_frequent 
             most_frequent=val  # update the most_frequent 
     for i in range(2,most_frequent+1): # iterate over the numbers from 2 to most_frequent counts 
         if(length_of_text%i==0 and most_frequent%i==0): # when numerator and denominator both are divisible 
             most_frequent=most_frequent/i  # update the most_frequent by dividing it by i
-            length_of_text=length_of_text/i     # update thr count_words by dividing it by i 
+            length_of_text=length_of_text/i     # update the count_words by dividing it by i 
     frequency_ratio= str(round(most_frequent)) +":"+str(round(length_of_text)) # find the frequency_ratio
     return frequency_ratio # return the frequency_ratio 
