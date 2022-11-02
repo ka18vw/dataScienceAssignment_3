@@ -1,0 +1,11 @@
+from sklearn import linear_model
+
+x = crimeData[['PctPopUnderPov','PctUnemployed','PolicPerPop', 'Pcthomeless', 'PctBSorMore']]
+y = crimeData['ViolentCrimesPerPop']
+ 
+# with sklearn
+regr = linear_model.LinearRegression()
+regr.fit(x, y)
+
+print('Intercept: \n', regr.intercept_)
+print('Coefficients: \n', regr.coef_)
