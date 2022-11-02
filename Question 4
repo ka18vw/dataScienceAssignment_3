@@ -1,0 +1,23 @@
+from sklearn.metrics import f1_score
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25)
+print('Training Feature Size :- ', X_train.shape )
+print('Training Label Size :- ', y_train.shape )
+print('Testing Feature Size :- ', X_test.shape )
+print('Testing Label Size :- ', y_test.shape )
+
+#train model
+logisticRegression.fit(X_train,y_train) 
+
+#Using test features of the dataset to see the predictions 
+kidneyPrediction = logisticRegression.predict(X_test)
+
+#checking accuracy
+accuracy = accuracy_score(y_test, kidneyPrediction)
+print(accuracy)
+
+f1_score_ckd = f1_score(y,kidneyPrediction)
+print(f1_score_ckd)
